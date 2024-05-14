@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p>Value of Notification.permission on page load: <span id="pageLoad"></span></p>
+        <p>Value of Notification.permission on page load: <span id="timeout"></span></p>
+        <p>Value of Notification.permission on page load: <span id="async"></span></p>
+    </div>
+    <button onclick="() => window.Notification.requestPermission()">Request permissions</button>
+</body>
+<footer>
+    <script>
+        document.getElementById('pageLoad').innerHTML = window.Notification.permission
+        setTimeout(() => document.getElementById('timeout').innerHTML = window.Notification.permission, 1000)
+        window.navigator.permissions.query({ name: 'notifications' }).then(res => document.getElementById('async').innerHTML = res.state)
+    </script>
+</footer>
+
+</html>
