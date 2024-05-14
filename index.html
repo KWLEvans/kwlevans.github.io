@@ -13,13 +13,13 @@
         <p>Value of Notification.permission on page load: <span id="timeout"></span></p>
         <p>Value of Notification.permission on page load: <span id="async"></span></p>
     </div>
-    <button onclick="() => window.Notification.requestPermission()">Request permissions</button>
+    <button onclick="Notification.requestPermission()">Request permissions</button>
 </body>
 <footer>
     <script>
-        document.getElementById('pageLoad').innerHTML = window.Notification.permission
-        setTimeout(() => document.getElementById('timeout').innerHTML = window.Notification.permission, 1000)
-        window.navigator.permissions.query({ name: 'notifications' }).then(res => document.getElementById('async').innerHTML = res.state)
+        document.getElementById('pageLoad').innerHTML = Notification.permission
+        setTimeout(() => document.getElementById('timeout').innerHTML = Notification.permission, 1000)
+        navigator.permissions.query({ name: 'notifications' }).then(res => document.getElementById('async').innerHTML = res.state)
     </script>
 </footer>
 
